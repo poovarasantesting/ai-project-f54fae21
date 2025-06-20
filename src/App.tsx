@@ -1,14 +1,13 @@
+import { LoginForm } from "./components/LoginForm";
 import { Toaster } from "@/components/ui/toaster";
-import { ThemeProvider } from "@/components/theme-provider";
-import { ChatPage } from "@/pages/chat";
 
-export default function App() {
+function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="chat-theme">
-      <main className="min-h-screen">
-        <ChatPage />
-      </main>
+    <div className="min-h-screen flex items-center justify-center p-4 bg-slate-50">
+      <LoginForm />
       <Toaster />
-    </ThemeProvider>
+    </div>
   );
 }
+
+export default App;
