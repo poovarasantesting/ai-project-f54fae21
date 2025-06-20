@@ -1,21 +1,14 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
-import Dashboard from "@/pages/Dashboard";
-import WorkoutHistory from "@/pages/WorkoutHistory";
-import PersonalRecords from "@/pages/PersonalRecords";
-import Layout from "@/components/Layout";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ChatPage } from "@/pages/chat";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <ThemeProvider defaultTheme="dark" storageKey="chat-theme">
+      <main className="min-h-screen">
+        <ChatPage />
+      </main>
       <Toaster />
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/history" element={<WorkoutHistory />} />
-          <Route path="/records" element={<PersonalRecords />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    </ThemeProvider>
   );
 }
